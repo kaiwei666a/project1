@@ -149,32 +149,44 @@ def memoized_edit_distance(source, target, cost_insert, cost_delete, cost_sub, c
     # min_cost = 0
     # final_string = ""
 
-    if memo is None:
-        memo = {}
-    if (source, target) in memo:
-        return memo[(source, target)]
+    m, n = len(source), len(target)
     
-    if not source:
-        return len(target) * cost_insert, target
-    if not target:
-        return len(source) * cost_delete, ""
-    
-    if source[0] == target[0]:
-        min_cost, final_string = memoized_edit_distance(source[1:], target[1:], cost_insert, cost_delete, cost_sub, cost_trans, memo)
-    else:
-        insert_cost, insert_str = memoized_edit_distance(source, target[1:], cost_insert, cost_delete, cost_sub, cost_trans, memo)
-        delete_cost, delete_str = memoized_edit_distance(source[1:], target, cost_insert, cost_delete, cost_sub, cost_trans, memo)
-        substitute_cost, substitute_str = memoized_edit_distance(source[1:], target[1:], cost_insert, cost_delete, cost_sub, cost_trans, memo)
-        
-        insert_cost += cost_insert
-        delete_cost += cost_delete
-        substitute_cost += cost_sub
-        
-        min_cost, final_string = min(
-            (insert_cost, target[0] + insert_str),
-            (delete_cost, delete_str),
-            (substitute_cost, target[0] + substitute_str)
-        )
-    
-    memo[(source, target)] = (min_cost, final_string)
+
+    dp = [[(0, "") for _ in range(n + 1)] for _ in range(m + 1)]
+
+
+    for i in range(1, m + 1):
+        dp[i][0] = (i * cost_delete, "")  
+
+
+    for j in range(1, n + 1):
+        dp[0][j] = (j * cost_insert, target[:j]) 
+
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if source[i - 1] == target[j - 1]:  
+                dp[i][j] = dp[i - 1][j - 1] 
+            else:
+
+                insert_cost, insert_str = dp[i][j - 1]
+                delete_cost, delete_str = dp[i - 1][j]
+                substitute_cost, substitute_str = dp[i - 1][j - 1]
+
+
+                insert_cost += cost_insert
+                delete_cost += cost_delete
+                substitute_cost += cost_sub
+
+
+                dp[i][j] = min(
+                    (insert_cost, target[j - 1] + insert_str), 
+                    (delete_cost, delete_str),  
+                    (substitute_cost, target[j - 1] + substitute_str)  
+                )
+
+ 
+    min_cost, final_string = dp[m][n]
+
+
     return min_cost, final_string
