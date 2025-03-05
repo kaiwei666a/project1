@@ -1,0 +1,606 @@
+{
+  "naive_tests": [
+    {
+      "test_id": 1,
+      "source": "test",
+      "target": "tests",
+      "costs": {
+        "insert": 5,
+        "delete": 20,
+        "substitute": 15,
+        "transpose": 10
+      },
+      "naive_distance": 5
+    },
+    {
+      "test_id": 2,
+      "source": "tests",
+      "target": "test",
+      "costs": {
+        "insert": 20,
+        "delete": 5,
+        "substitute": 15,
+        "transpose": 10
+      },
+      "naive_distance": 5
+    },
+    {
+      "test_id": 3,
+      "source": "cat",
+      "target": "cut",
+      "costs": {
+        "insert": 10,
+        "delete": 10,
+        "substitute": 3,
+        "transpose": 15
+      },
+      "naive_distance": 3
+    },
+    {
+      "test_id": 4,
+      "source": "ab",
+      "target": "ba",
+      "costs": {
+        "insert": 10,
+        "delete": 10,
+        "substitute": 10,
+        "transpose": 2
+      },
+      "naive_distance": 2
+    },
+    {
+      "test_id": 5,
+      "source": "speling",
+      "target": "spelling",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 5,
+        "transpose": 15
+      },
+      "naive_distance": 5
+    },
+    {
+      "test_id": 6,
+      "source": "abcdef",
+      "target": "azced",
+      "costs": {
+        "insert": 7,
+        "delete": 7,
+        "substitute": 2,
+        "transpose": 10
+      },
+      "naive_distance": 11
+    },
+    {
+      "test_id": 7,
+      "source": "gumbo",
+      "target": "gambol",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 20,
+        "transpose": 10
+      },
+      "naive_distance": 15
+    },
+    {
+      "test_id": 8,
+      "source": "form",
+      "target": "from",
+      "costs": {
+        "insert": 10,
+        "delete": 10,
+        "substitute": 10,
+        "transpose": 1
+      },
+      "naive_distance": 1
+    },
+    {
+      "test_id": 9,
+      "source": "intention",
+      "target": "execution",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 7,
+        "transpose": 15
+      },
+      "naive_distance": 31
+    },
+    {
+      "test_id": 10,
+      "source": "abcdefg",
+      "target": "azcedfg",
+      "costs": {
+        "insert": 8,
+        "delete": 8,
+        "substitute": 3,
+        "transpose": 4
+      },
+      "naive_distance": 7
+    }
+  ],
+  "dp_tests": [
+    {
+      "test_id": 1,
+      "source": "a",
+      "target": "b",
+      "costs": {
+        "insert": 3,
+        "delete": 3,
+        "substitute": 1,
+        "transpose": 5
+      },
+      "iterative_distance": 1,
+      "iterative_output": "b",
+      "memoized_distance": 1,
+      "memoized_output": "b"
+    },
+    {
+      "test_id": 2,
+      "source": "hi",
+      "target": "hip",
+      "costs": {
+        "insert": 2,
+        "delete": 10,
+        "substitute": 10,
+        "transpose": 10
+      },
+      "iterative_distance": 2,
+      "iterative_output": "hip",
+      "memoized_distance": 2,
+      "memoized_output": "hip"
+    },
+    {
+      "test_id": 3,
+      "source": "test",
+      "target": "tet",
+      "costs": {
+        "insert": 10,
+        "delete": 2,
+        "substitute": 10,
+        "transpose": 10
+      },
+      "iterative_distance": 2,
+      "iterative_output": "tet",
+      "memoized_distance": 2,
+      "memoized_output": "tet"
+    },
+    {
+      "test_id": 4,
+      "source": "ab",
+      "target": "ba",
+      "costs": {
+        "insert": 10,
+        "delete": 10,
+        "substitute": 10,
+        "transpose": 1
+      },
+      "iterative_distance": 1,
+      "iterative_output": "ba",
+      "memoized_distance": 1,
+      "memoized_output": "ba"
+    },
+    {
+      "test_id": 5,
+      "source": "speling",
+      "target": "spelling",
+      "costs": {
+        "insert": 2,
+        "delete": 2,
+        "substitute": 2,
+        "transpose": 10
+      },
+      "iterative_distance": 2,
+      "iterative_output": "spelling",
+      "memoized_distance": 2,
+      "memoized_output": "spelling"
+    },
+    {
+      "test_id": 6,
+      "source": "kitten",
+      "target": "sitting",
+      "costs": {
+        "insert": 4,
+        "delete": 4,
+        "substitute": 5,
+        "transpose": 20
+      },
+      "iterative_distance": 14,
+      "iterative_output": "sitting",
+      "memoized_distance": 14,
+      "memoized_output": "sitting"
+    },
+    {
+      "test_id": 7,
+      "source": "gumbo",
+      "target": "gambol",
+      "costs": {
+        "insert": 3,
+        "delete": 3,
+        "substitute": 20,
+        "transpose": 10
+      },
+      "iterative_distance": 9,
+      "iterative_output": "gambol",
+      "memoized_distance": 9,
+      "memoized_output": "gambol"
+    },
+    {
+      "test_id": 8,
+      "source": "The quick brown fox",
+      "target": "The quick brown box",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 2,
+        "transpose": 15
+      },
+      "iterative_distance": 2,
+      "iterative_output": "The quick brown box",
+      "memoized_distance": 2,
+      "memoized_output": "The quick brown box"
+    },
+    {
+      "test_id": 9,
+      "source": "Hello",
+      "target": "Hello there",
+      "costs": {
+        "insert": 2,
+        "delete": 15,
+        "substitute": 10,
+        "transpose": 10
+      },
+      "iterative_distance": 12,
+      "iterative_output": "Hello there",
+      "memoized_distance": 12,
+      "memoized_output": "Hello there"
+    },
+    {
+      "test_id": 10,
+      "source": "Goodbye now",
+      "target": "Goodbye",
+      "costs": {
+        "insert": 10,
+        "delete": 3,
+        "substitute": 10,
+        "transpose": 10
+      },
+      "iterative_distance": 12,
+      "iterative_output": "Goodbye",
+      "memoized_distance": 12,
+      "memoized_output": "Goodbye"
+    },
+    {
+      "test_id": 11,
+      "source": "Data science is evolving.",
+      "target": "Data science evolves rapidly.",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 8,
+        "transpose": 15
+      },
+      "iterative_distance": 66,
+      "iterative_output": "Data science evolves rapidly.",
+      "memoized_distance": 66,
+      "memoized_output": "Data science evolves rapidly."
+    },
+    {
+      "test_id": 12,
+      "source": "Understanding algorithms is essential.",
+      "target": "Understanding algorihtms is essential.",
+      "costs": {
+        "insert": 10,
+        "delete": 10,
+        "substitute": 10,
+        "transpose": 1
+      },
+      "iterative_distance": 1,
+      "iterative_output": "Understanding algorihtms is essential.",
+      "memoized_distance": 1,
+      "memoized_output": "Understanding algorihtms is essential."
+    },
+    {
+      "test_id": 13,
+      "source": "abcdef",
+      "target": "uvwxyz",
+      "costs": {
+        "insert": 2,
+        "delete": 2,
+        "substitute": 1,
+        "transpose": 15
+      },
+      "iterative_distance": 6,
+      "iterative_output": "uvwxyz",
+      "memoized_distance": 6,
+      "memoized_output": "uvwxyz"
+    },
+    {
+      "test_id": 14,
+      "source": "Artificial intelligence is transforming industries.",
+      "target": "Artificial intelligence is revolutionizing industries.",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 2,
+        "transpose": 10
+      },
+      "iterative_distance": 31,
+      "iterative_output": "Artificial intelligence is revolutionizing industries.",
+      "memoized_distance": 31,
+      "memoized_output": "Artificial intelligence is revolutionizing industries."
+    },
+    {
+      "test_id": 15,
+      "source": "misspell",
+      "target": "missile",
+      "costs": {
+        "insert": 5,
+        "delete": 5,
+        "substitute": 2,
+        "transpose": 2
+      },
+      "iterative_distance": 9,
+      "iterative_output": "missile",
+      "memoized_distance": 9,
+      "memoized_output": "missile"
+    },
+    {
+      "test_id": 16,
+      "source": "If you're using a content management system (CMS) or someone else is taking care of your site, ask them to help you. Make sure to forward any Search Console message that details the issue to them.\nGoogle does not guarantee that features that consume structured data will show up in search results. For a list of common reasons why Google may not show your content in a rich result, see the General Structured Data Guidelines.\nYou might have an error in your structured data. Check the list of structured data errors and the Unparsable structured data report.\nIf you received a structured data manual action against your page, the structured data on the page will be ignored (although the page can still appear in Google Search results). To fix structured data issues, use the Manual Actions report.\nReview the guidelines again to identify if your content isn't compliant with the guidelines. The problem can be caused by either spammy content or spammy markup usage. However, the issue may not be a syntax issue, and so the Rich Results Test won't be able to identify these issues.",
+      "target": "If you're using a content management system (CMS) or if someone else manages your site, consult with them. Also, forward any detailed Search Console alerts regarding the issue.\nNote that Google does not always ensure that structured data features appear in search results. For more information on why your content might not display as a rich result, refer to the General Structured Data Guidelines.\nThere may be an error in your structured data. Please review the list of structured data errors and consult the Unparsable Structured Data report.\nIf your page has received a manual action for structured data, its structured data will be disregarded (although the page may still be visible in Google Search results). Use the Manual Actions report to resolve these issues.\nRevisit the guidelines to confirm that your content complies with the standards. Problems might result from either spammy content or improper markup usage, and sometimes the Rich Results Test may not detect non-syntax-related issues.",
+      "costs": {
+        "insert": 35,
+        "delete": 40,
+        "substitute": 45,
+        "transpose": 50
+      },
+      "iterative_distance": 18550,
+      "iterative_output": "If you're using a content management system (CMS) or if someone else manages your site, consult with them. Also, forward any detailed Search Console alerts regarding the issue.\nNote that Google does not always ensure that structured data features appear in search results. For more information on why your content might not display as a rich result, refer to the General Structured Data Guidelines.\nThere may be an error in your structured data. Please review the list of structured data errors and consult the Unparsable Structured Data report.\nIf your page has received a manual action for structured data, its structured data will be disregarded (although the page may still be visible in Google Search results). Use the Manual Actions report to resolve these issues.\nRevisit the guidelines to confirm that your content complies with the standards. Problems might result from either spammy content or improper markup usage, and sometimes the Rich Results Test may not detect non-syntax-related issues.",
+      "memoized_distance": 18550,
+      "memoized_output": "If you're using a content management system (CMS) or if someone else manages your site, consult with them. Also, forward any detailed Search Console alerts regarding the issue.\nNote that Google does not always ensure that structured data features appear in search results. For more information on why your content might not display as a rich result, refer to the General Structured Data Guidelines.\nThere may be an error in your structured data. Please review the list of structured data errors and consult the Unparsable Structured Data report.\nIf your page has received a manual action for structured data, its structured data will be disregarded (although the page may still be visible in Google Search results). Use the Manual Actions report to resolve these issues.\nRevisit the guidelines to confirm that your content complies with the standards. Problems might result from either spammy content or improper markup usage, and sometimes the Rich Results Test may not detect non-syntax-related issues."
+    },
+    {
+      "test_id": 17,
+      "source": "In today’s digital landscape, maintaining a robust online presence is crucial for businesses of all sizes. A comprehensive strategy often involves leveraging advanced tools and data analytics to monitor performance, understand customer behavior, and optimize content. Digital marketing professionals emphasize the importance of integrating various channels, from social media to search engine optimization, to create a cohesive brand narrative.",
+      "target": "In today’s digital world, sustaining a strong online presence is essential for businesses large and small. A holistic approach typically involves using advanced analytics and performance monitoring tools to gain insights into customer behavior and improve content strategy. Experts in digital marketing stress the need to blend diverse channels, including social media and SEO, to build a unified brand story.",
+      "costs": {
+        "insert": 30,
+        "delete": 35,
+        "substitute": 25,
+        "transpose": 40
+      },
+      "iterative_distance": 6765,
+      "iterative_output": "In today’s digital world, sustaining a strong online presence is essential for businesses large and small. A holistic approach typically involves using advanced analytics and performance monitoring tools to gain insights into customer behavior and improve content strategy. Experts in digital marketing stress the need to blend diverse channels, including social media and SEO, to build a unified brand story.",
+      "memoized_distance": 6765,
+      "memoized_output": "In today’s digital world, sustaining a strong online presence is essential for businesses large and small. A holistic approach typically involves using advanced analytics and performance monitoring tools to gain insights into customer behavior and improve content strategy. Experts in digital marketing stress the need to blend diverse channels, including social media and SEO, to build a unified brand story."
+    },
+    {
+      "test_id": 18,
+      "source": "Space exploration has been a driving force of human curiosity and innovation. Since the dawn of the space age, missions have sought to uncover the mysteries of the universe. Telescopes and spacecraft have revealed wonders beyond our imagination, inspiring generations to look beyond our planet.",
+      "target": "Exploring space continues to fuel human curiosity and technological progress. From the early days of space travel, missions have aimed to unlock the secrets of the cosmos. Advanced telescopes and interstellar probes have uncovered remarkable phenomena, motivating countless individuals to envision a future beyond Earth.",
+      "costs": {
+        "insert": 30,
+        "delete": 35,
+        "substitute": 40,
+        "transpose": 45
+      },
+      "iterative_distance": 6715,
+      "iterative_output": "Exploring space continues to fuel human curiosity and technological progress. From the early days of space travel, missions have aimed to unlock the secrets of the cosmos. Advanced telescopes and interstellar probes have uncovered remarkable phenomena, motivating countless individuals to envision a future beyond Earth.",
+      "memoized_distance": 6715,
+      "memoized_output": "Exploring space continues to fuel human curiosity and technological progress. From the early days of space travel, missions have aimed to unlock the secrets of the cosmos. Advanced telescopes and interstellar probes have uncovered remarkable phenomena, motivating countless individuals to envision a future beyond Earth."
+    },
+    {
+      "test_id": 19,
+      "source": "Climate change poses a significant threat to the global ecosystem. Rising temperatures and extreme weather events are becoming the norm, affecting communities worldwide and altering natural habitats.",
+      "target": "The impact of climate change is increasingly evident across the globe. With rising temperatures and more frequent extreme weather, communities around the world are facing unprecedented challenges and environmental shifts.",
+      "costs": {
+        "insert": 25,
+        "delete": 30,
+        "substitute": 35,
+        "transpose": 40
+      },
+      "iterative_distance": 3785,
+      "iterative_output": "The impact of climate change is increasingly evident across the globe. With rising temperatures and more frequent extreme weather, communities around the world are facing unprecedented challenges and environmental shifts.",
+      "memoized_distance": 3785,
+      "memoized_output": "The impact of climate change is increasingly evident across the globe. With rising temperatures and more frequent extreme weather, communities around the world are facing unprecedented challenges and environmental shifts."
+    },
+    {
+      "test_id": 20,
+      "source": "Modern lifestyles have led to a surge in health and wellness awareness. People are adopting healthier diets, engaging in regular exercise, and embracing mindfulness practices to improve their overall quality of life.",
+      "target": "Contemporary living has sparked a growing interest in health and wellness. Individuals are shifting towards nutritious diets, consistent physical activity, and mindfulness techniques to enhance their well-being.",
+      "costs": {
+        "insert": 20,
+        "delete": 25,
+        "substitute": 30,
+        "transpose": 35
+      },
+      "iterative_distance": 3650,
+      "iterative_output": "Contemporary living has sparked a growing interest in health and wellness. Individuals are shifting towards nutritious diets, consistent physical activity, and mindfulness techniques to enhance their well-being.",
+      "memoized_distance": 3650,
+      "memoized_output": "Contemporary living has sparked a growing interest in health and wellness. Individuals are shifting towards nutritious diets, consistent physical activity, and mindfulness techniques to enhance their well-being."
+    },
+    {
+      "test_id": 21,
+      "source": "Education is undergoing a transformation with the integration of digital technologies. Online learning platforms and interactive tools are reshaping traditional classrooms, making education more accessible.",
+      "target": "The educational landscape is evolving as digital technologies become integral. Virtual classrooms and innovative educational tools are revolutionizing conventional learning environments, broadening access to knowledge.",
+      "costs": {
+        "insert": 25,
+        "delete": 30,
+        "substitute": 20,
+        "transpose": 30
+      },
+      "iterative_distance": 3395,
+      "iterative_output": "The educational landscape is evolving as digital technologies become integral. Virtual classrooms and innovative educational tools are revolutionizing conventional learning environments, broadening access to knowledge.",
+      "memoized_distance": 3395,
+      "memoized_output": "The educational landscape is evolving as digital technologies become integral. Virtual classrooms and innovative educational tools are revolutionizing conventional learning environments, broadening access to knowledge."
+    },
+    {
+      "test_id": 22,
+      "source": "In the wake of the pandemic, economies around the world are striving to recover. Governments are implementing policies to stimulate growth and restore stability amid unprecedented challenges.",
+      "target": "Following the global pandemic, nations are working to rebuild their economies. Strategic government interventions are aimed at reviving growth and ensuring long-term economic stability.",
+      "costs": {
+        "insert": 30,
+        "delete": 30,
+        "substitute": 25,
+        "transpose": 35
+      },
+      "iterative_distance": 3405,
+      "iterative_output": "Following the global pandemic, nations are working to rebuild their economies. Strategic government interventions are aimed at reviving growth and ensuring long-term economic stability.",
+      "memoized_distance": 3405,
+      "memoized_output": "Following the global pandemic, nations are working to rebuild their economies. Strategic government interventions are aimed at reviving growth and ensuring long-term economic stability."
+    },
+    {
+      "test_id": 23,
+      "source": "Renewable energy technologies have made remarkable progress in recent years. Solar panels, wind turbines, and hydropower installations are becoming increasingly efficient and cost-effective.",
+      "target": "Advancements in renewable energy have accelerated, with significant improvements in technology. Innovations in solar, wind, and hydroelectric power are making clean energy more accessible and affordable.",
+      "costs": {
+        "insert": 25,
+        "delete": 25,
+        "substitute": 30,
+        "transpose": 35
+      },
+      "iterative_distance": 3875,
+      "iterative_output": "Advancements in renewable energy have accelerated, with significant improvements in technology. Innovations in solar, wind, and hydroelectric power are making clean energy more accessible and affordable.",
+      "memoized_distance": 3875,
+      "memoized_output": "Advancements in renewable energy have accelerated, with significant improvements in technology. Innovations in solar, wind, and hydroelectric power are making clean energy more accessible and affordable."
+    },
+    {
+      "test_id": 24,
+      "source": "The global political landscape is constantly shifting, with emerging powers and evolving alliances redefining international relations. Diplomatic negotiations and strategic partnerships are critical in this dynamic environment.",
+      "target": "International politics are in a state of flux, as new global players and changing alliances reshape relationships. Diplomatic efforts and strategic collaborations play a crucial role in managing these transitions.",
+      "costs": {
+        "insert": 35,
+        "delete": 40,
+        "substitute": 30,
+        "transpose": 40
+      },
+      "iterative_distance": 4220,
+      "iterative_output": "International politics are in a state of flux, as new global players and changing alliances reshape relationships. Diplomatic efforts and strategic collaborations play a crucial role in managing these transitions.",
+      "memoized_distance": 4220,
+      "memoized_output": "International politics are in a state of flux, as new global players and changing alliances reshape relationships. Diplomatic efforts and strategic collaborations play a crucial role in managing these transitions."
+    },
+    {
+      "test_id": 25,
+      "source": "The travel and tourism industry has experienced significant growth over the past decade. Destinations worldwide are investing in infrastructure and innovative services to attract a diverse range of visitors.",
+      "target": "Tourism has seen a remarkable surge in recent years. Countries are enhancing their travel infrastructure and amenities to appeal to an ever-increasing number of international tourists.",
+      "costs": {
+        "insert": 20,
+        "delete": 20,
+        "substitute": 25,
+        "transpose": 30
+      },
+      "iterative_distance": 3175,
+      "iterative_output": "Tourism has seen a remarkable surge in recent years. Countries are enhancing their travel infrastructure and amenities to appeal to an ever-increasing number of international tourists.",
+      "memoized_distance": 3175,
+      "memoized_output": "Tourism has seen a remarkable surge in recent years. Countries are enhancing their travel infrastructure and amenities to appeal to an ever-increasing number of international tourists."
+    },
+    {
+      "test_id": 26,
+      "source": "Major sports events bring nations together, creating a sense of unity and excitement. From the Olympics to the World Cup, these events captivate audiences and promote cultural exchange on a global scale.",
+      "target": "Global sporting events unite people and foster national pride. Competitions like the Olympics and the World Cup captivate fans worldwide and encourage rich cultural interactions.",
+      "costs": {
+        "insert": 25,
+        "delete": 30,
+        "substitute": 20,
+        "transpose": 25
+      },
+      "iterative_distance": 2765,
+      "iterative_output": "Global sporting events unite people and foster national pride. Competitions like the Olympics and the World Cup captivate fans worldwide and encourage rich cultural interactions.",
+      "memoized_distance": 2765,
+      "memoized_output": "Global sporting events unite people and foster national pride. Competitions like the Olympics and the World Cup captivate fans worldwide and encourage rich cultural interactions."
+    },
+    {
+      "test_id": 27,
+      "source": "Financial markets are highly dynamic, reflecting the ever-changing economic landscape. Investors closely monitor trends and adjust their portfolios to navigate volatility.",
+      "target": "The financial sector is marked by constant fluctuations, mirroring shifts in the global economy. Market participants vigilantly track trends and strategically update their investment approaches.",
+      "costs": {
+        "insert": 30,
+        "delete": 35,
+        "substitute": 25,
+        "transpose": 30
+      },
+      "iterative_distance": 3600,
+      "iterative_output": "The financial sector is marked by constant fluctuations, mirroring shifts in the global economy. Market participants vigilantly track trends and strategically update their investment approaches.",
+      "memoized_distance": 3600,
+      "memoized_output": "The financial sector is marked by constant fluctuations, mirroring shifts in the global economy. Market participants vigilantly track trends and strategically update their investment approaches."
+    },
+    {
+      "test_id": 28,
+      "source": "Modern society is witnessing profound cultural shifts driven by technological advancements and globalization. Traditional values are being reinterpreted in light of contemporary challenges.",
+      "target": "Contemporary culture is evolving rapidly, influenced by global connectivity and technological change. Established norms are being reevaluated as new societal challenges emerge.",
+      "costs": {
+        "insert": 25,
+        "delete": 30,
+        "substitute": 30,
+        "transpose": 35
+      },
+      "iterative_distance": 3780,
+      "iterative_output": "Contemporary culture is evolving rapidly, influenced by global connectivity and technological change. Established norms are being reevaluated as new societal challenges emerge.",
+      "memoized_distance": 3780,
+      "memoized_output": "Contemporary culture is evolving rapidly, influenced by global connectivity and technological change. Established norms are being reevaluated as new societal challenges emerge."
+    },
+    {
+      "test_id": 29,
+      "source": "Rapid urbanization has prompted cities to rethink their planning strategies. Innovative approaches to transportation, housing, and public spaces are essential for sustainable urban development.",
+      "target": "As cities expand at an unprecedented rate, urban planning is undergoing a revolution. Creative solutions for transit, affordable housing, and communal spaces are critical for sustainable urban growth.",
+      "costs": {
+        "insert": 30,
+        "delete": 30,
+        "substitute": 20,
+        "transpose": 30
+      },
+      "iterative_distance": 2530,
+      "iterative_output": "As cities expand at an unprecedented rate, urban planning is undergoing a revolution. Creative solutions for transit, affordable housing, and communal spaces are critical for sustainable urban growth.",
+      "memoized_distance": 2530,
+      "memoized_output": "As cities expand at an unprecedented rate, urban planning is undergoing a revolution. Creative solutions for transit, affordable housing, and communal spaces are critical for sustainable urban growth."
+    },
+    {
+      "test_id": 30,
+      "source": "Social media platforms have transformed the way people communicate and share information. While they offer numerous benefits, they also pose challenges related to privacy and the spread of misinformation.",
+      "target": "The advent of social media has redefined communication, enabling rapid information exchange. Despite its advantages, this digital revolution brings concerns over privacy and the proliferation of false information.",
+      "costs": {
+        "insert": 20,
+        "delete": 25,
+        "substitute": 25,
+        "transpose": 30
+      },
+      "iterative_distance": 3215,
+      "iterative_output": "The advent of social media has redefined communication, enabling rapid information exchange. Despite its advantages, this digital revolution brings concerns over privacy and the proliferation of false information.",
+      "memoized_distance": 3215,
+      "memoized_output": "The advent of social media has redefined communication, enabling rapid information exchange. Despite its advantages, this digital revolution brings concerns over privacy and the proliferation of false information."
+    },
+    {
+      "test_id": 31,
+      "source": "Recent breakthroughs in medical research have led to innovative treatments for various diseases. Advances in biotechnology and pharmaceuticals are opening new avenues in patient care.",
+      "target": "Innovative discoveries in medical science are revolutionizing treatment protocols. Progress in biotechnology and drug development is paving the way for significantly improved healthcare solutions.",
+      "costs": {
+        "insert": 30,
+        "delete": 30,
+        "substitute": 35,
+        "transpose": 40
+      },
+      "iterative_distance": 4155,
+      "iterative_output": "Innovative discoveries in medical science are revolutionizing treatment protocols. Progress in biotechnology and drug development is paving the way for significantly improved healthcare solutions.",
+      "memoized_distance": 4155,
+      "memoized_output": "Innovative discoveries in medical science are revolutionizing treatment protocols. Progress in biotechnology and drug development is paving the way for significantly improved healthcare solutions."
+    },
+    {
+      "test_id": 32,
+      "source": "Environmental conservation efforts are gaining momentum as awareness of climate change grows. Communities, governments, and organizations are collaborating to protect natural resources for future generations.",
+      "target": "The drive for environmental conservation is intensifying amid rising concerns over climate change. Collaborative initiatives among local communities, authorities, and NGOs aim to safeguard our natural heritage.",
+      "costs": {
+        "insert": 35,
+        "delete": 35,
+        "substitute": 30,
+        "transpose": 40
+      },
+      "iterative_distance": 4490,
+      "iterative_output": "The drive for environmental conservation is intensifying amid rising concerns over climate change. Collaborative initiatives among local communities, authorities, and NGOs aim to safeguard our natural heritage.",
+      "memoized_distance": 4490,
+      "memoized_output": "The drive for environmental conservation is intensifying amid rising concerns over climate change. Collaborative initiatives among local communities, authorities, and NGOs aim to safeguard our natural heritage."
+    }
+  ]
+}
